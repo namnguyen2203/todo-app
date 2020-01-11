@@ -1,0 +1,5 @@
+input[type='checkbox']:checked + label {
+  text-decoration: line-through;
+  opacity: 0.3;
+  transition: all ease-in-out 300ms;
+}
