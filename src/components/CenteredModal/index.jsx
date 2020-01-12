@@ -3,8 +3,8 @@ import { Modal, Button } from 'react-bootstrap'
 
 export default function CenteredModal({ heading, children, onHide, onRemove, show }) {
   return (
-    <Modal show={show} onHide={onHide}>
-      <Modal.Header closeButton>
+    <Modal show={show} onHide={onHide} centered>
+      <Modal.Header>
         <Modal.Title>{heading}</Modal.Title>
       </Modal.Header>
       <Modal.Body>{children}</Modal.Body>

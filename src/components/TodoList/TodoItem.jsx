@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
-import CenteredModal from '../CenterdModal'
+import CenteredModal from '../CenteredModal'
 
 class TodoItem extends Component {
   constructor(props) {
@@ -29,7 +29,7 @@ class TodoItem extends Component {
             onChange={() => handleChange(todo)}
           />
           <label className='custom-control-label' htmlFor={id}>
-            {todo.task}
+            {todo.task} <small>({todo.createdDate})</small>
           </label>
           {todo.isCompleted && (
             <button
