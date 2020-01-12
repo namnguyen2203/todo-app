@@ -74,19 +74,17 @@ class TodoList extends Component {
   }
 
   handleRemove(item) {
-    if (window.confirm('Bạn có muốn xóa không?')) {
-      const { todoList } = this.state
-      const index = todoList.indexOf(item)
+    const { todoList } = this.state
+    const index = todoList.indexOf(item)
 
-      axios
-        .delete('https://gezdi.sse.codesandbox.io/todos/' + item.id)
-        .then((res) => console.log('Delete successful'))
-        .catch((err) => console.log(err))
+    axios
+      .delete('https://gezdi.sse.codesandbox.io/todos/' + item.id)
+      .then((res) => console.log('Delete successful'))
+      .catch((err) => console.log(err))
 
-      this.setState({
-        todoList: [...todoList.slice(0, index), ...todoList.slice(index + 1)]
-      })
-    }
+    this.setState({
+      todoList: [...todoList.slice(0, index), ...todoList.slice(index + 1)]
+    })
   }
 
   countUncompletedTodo() {

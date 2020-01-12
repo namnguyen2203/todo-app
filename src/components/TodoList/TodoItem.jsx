@@ -1,7 +1,21 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
+import CenteredModal from '../CenterdModal'
+
 class TodoItem extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      modalShow: false
+    }
+  }
+
+  onHide() {
+    this.setState({ modalShow: false })
+  }
+
   render() {
     const { id, todo, handleChange, handleRemove } = this.props
     return (
@@ -22,12 +36,23 @@ class TodoItem extends Component {
               type='button'
               className='close'
               aria-label='Close'
-              onClick={() => handleRemove(todo)}
+              onClick={() => this.setState({ modalShow: true })}
             >
               <span aria-hidden='true'>&times;</span>
             </button>
           )}
         </div>
+        <CenteredModal
+          heading='Xóa bài hát'
+          show={this.state.modalShow}
+          onHide={() => this.onHide()}
+          onRemove={() => {
+            handleRemove(todo)
+            this.onHide()
+          }}
+        >
+          Bạn có muốn xóa không?
+        </CenteredModal>
       </li>
     )
   }
