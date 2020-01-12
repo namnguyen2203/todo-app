@@ -1,35 +1,35 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 
 class TodoItem extends Component {
   render() {
-    const { id, todo, handleChange, handleRemove } = this.props;
+    const { id, todo, handleChange, handleRemove } = this.props
     return (
-      <li className="list-group-item">
-        <div className="custom-control custom-checkbox">
+      <li className='list-group-item'>
+        <div className='custom-control custom-checkbox'>
           <input
-            type="checkbox"
-            className="custom-control-input"
+            type='checkbox'
+            className='custom-control-input'
             id={id}
             checked={todo.isCompleted}
             onChange={() => handleChange(todo)}
           />
-          <label className="custom-control-label" htmlFor={id}>
+          <label className='custom-control-label' htmlFor={id}>
             {todo.task}
           </label>
           {todo.isCompleted && (
             <button
-              type="button"
-              className="close"
-              aria-label="Close"
+              type='button'
+              className='close'
+              aria-label='Close'
               onClick={() => handleRemove(todo)}
             >
-              <span aria-hidden="true">&times;</span>
+              <span aria-hidden='true'>&times;</span>
             </button>
           )}
         </div>
       </li>
-    );
+    )
   }
 }
 
@@ -41,6 +41,6 @@ TodoItem.propTypes = {
   id: PropTypes.number.isRequired,
   handleChange: PropTypes.func,
   handleRemove: PropTypes.func
-};
+}
 
-export default TodoItem;
+export default TodoItem
